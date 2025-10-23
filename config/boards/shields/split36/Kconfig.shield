@@ -1,0 +1,7 @@
+# Define left half shield
+config SHIELD_SPLIT36_LEFT
+    def_bool $(shields_list_contains,SPLIT36_LEFT)
+
+# Define right half shield
+config SHIELD_SPLIT36_RIGHT
+    def_bool $(shields_list_contains,SPLIT36_RIGHT)

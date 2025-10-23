@@ -1,0 +1,23 @@
+# Left half configuration
+if SHIELD_SPLIT36_LEFT
+    config SPLIT36
+        default "Split36 Left"
+
+    config SPLIT36_CENTRAL
+        default y
+endif
+
+# Right half configuration
+if SHIELD_SPLIT36_RIGHT
+    config SPLIT36
+        default "Split36 Right"
+
+    config SPLIT36_CENTRAL
+        default y
+endif
+
+# Common split settings
+if SHIELD_SPLIT36_LEFT || SHIELD_SPLIT36_RIGHT
+    config ZMK_SPLIT
+        default y
+endif
