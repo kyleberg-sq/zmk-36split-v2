@@ -1,4 +1,4 @@
-name: Build ZMK firmware
+name: Build ZMK Firmware
 
 on:
   push:
@@ -9,29 +9,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up west and dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y cmake ninja-build python3-pip
-          pip install west
-          west init -l app
-          west update
-          west zephyr-export
-          pip install -r app/zephyr/scripts/requirements.txt
-
-      - name: Build firmware for left side
-        run: west build -p -b nice_nano_v2 -- -DSHIELD=split36_left -DZMK_CONFIG=${{ github.workspace }}
-
-      - name: Build firmware for right side
-        run: west build -p -b nice_nano_v2 -- -DSHIELD=split36_right -DZMK_CONFIG=${{ github.workspace }}
-
-      - name: Upload firmware artifacts
-        uses: actions/upload-artifact@v4
+      - name: Build left half (central)
+        uses: zmkfirmware/zmk@main
         with:
-          name: firmware
-          path: build/zephyr/zmk.uf2
+          board: nice_nano_v2
+          shield: split36_left
+          artifact-name: zmk-left
+
+      - name: Build right half (peripheral)
+        uses: zmkfirmware/zmk@main
+        with:
+          board: nice_nano_v2
+          shield: split36_right
+          artifact-name: zmk-right

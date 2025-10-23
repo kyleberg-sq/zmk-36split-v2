@@ -1,20 +1,24 @@
-keymap {
-  compatible = "zmk,keymap";
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+    layers = <&default_layer &raise_layer>;
+  };
+
   default_layer {
-    bindings = 
-      &kp ESC &kp Q &kp W &kp E &kp R
-      &kp LSHFT &kp A &kp S &kp D &kp F
-      &kp LCTRL &kp Z &kp X &kp C &kp V
-      &kp BSPC &lt 1 SPACE &kp HOME    // Changed SPC to layer-tap for raise access
+    bindings = <
+      &kp ESC   &kp Q     &kp W     &kp E     &kp R
+      &kp LSHFT &kp A     &kp S     &kp D     &kp F
+      &kp LCTRL &kp Z     &kp X     &kp C     &kp V
+      &kp BSPC  &lt 1 SPACE &kp HOME
     >;
   };
 
   raise_layer {
-    bindings = 
-      &kp N1 &kp N2 &kp N3 &kp N4 &kp N5    // Fixed number keycodes
-      &kp N6 &kp N7 &kp N8 &kp N9 &kp N0    // Fixed number keycodes
+    bindings = <
+      &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
+      &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
       &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
-      &trans &trans &trans                   // Fixed transparent keys
+      &trans &trans &trans
     >;
   };
 };

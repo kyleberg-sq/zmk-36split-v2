@@ -13,11 +13,5 @@ if SHIELD_SPLIT36_RIGHT
         default "Split36 Right"
 
     config SPLIT36_CENTRAL
-        default y
-endif
-
-# Common split settings
-if SHIELD_SPLIT36_LEFT || SHIELD_SPLIT36_RIGHT
-    config ZMK_SPLIT
-        default y
+        default n
 endif

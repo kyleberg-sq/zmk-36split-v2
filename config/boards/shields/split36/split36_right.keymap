@@ -1,20 +1,24 @@
-keymap {
-  compatible = "zmk,keymap";
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+    layers = <&default_layer &raise_layer>;
+  };
+
   default_layer {
-    bindings = 
-      &kp T &kp Y &kp U &kp I &kp O
-      &kp G &kp H &kp J &kp K &kp P
-      &kp B &kp N &kp M &kp L &mo 1    // Changed ALT to layer access
-      &kp ENTER &kp SEMI &kp SQT         // Fixed semicolon and apostrophe
+    bindings = <
+      &kp T     &kp Y     &kp U     &kp I     &kp O
+      &kp G     &kp H     &kp J     &kp K     &kp P
+      &kp B     &kp N     &kp M     &kp L     &mo 1
+      &kp ENTER &kp SEMI  &kp SQT
     >;
   };
 
   raise_layer {
-    bindings = 
-      &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT
-      &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR  // Added RPAR for 5th key
-      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-      &trans &trans &trans                            // Fixed transparent keys
+    bindings = <
+      &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT
+      &kp CARET &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+      &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+      &trans    &trans    &trans
     >;
   };
 };
