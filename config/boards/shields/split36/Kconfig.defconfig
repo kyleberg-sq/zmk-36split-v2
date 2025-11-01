@@ -15,3 +15,7 @@ if SHIELD_SPLIT36_RIGHT
     config SPLIT36_CENTRAL
         default n
 endif
+if SHIELD_SPLIT36
+    config ZMK_KEYBOARD_NAME
+        default "Split36"
+endif
